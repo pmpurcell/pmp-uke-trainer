@@ -23,7 +23,8 @@ export default function ChartForm({ user }) {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     createChart({ ...formInput, uid: user.uid }).then(() => history.push('/charts'));
   };
   return (

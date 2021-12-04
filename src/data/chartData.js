@@ -14,9 +14,10 @@ const createChart = (chartObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/charts.json`, chartObj)
     .then((response) => {
+      const firebaseKey = response.data.name;
       axios
         .patch(`${dbUrl}/charts/${response.data.name}.json`, {
-          firebaseKey: response.data.name,
+          firebaseKey,
         })
         .then(resolve);
     })
