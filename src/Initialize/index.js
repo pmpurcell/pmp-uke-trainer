@@ -26,7 +26,7 @@ function Initialize() {
   return (
     <div className="App">
       <Navigation user={user} />
-      <Routes />
+      <Routes user={user} />
     </div>
   );
 }
