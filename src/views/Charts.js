@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { signInUser } from '../api/auth';
+import { getCharts } from '../data/chartData';
 
 export default function Charts({ user }) {
+  const [charts, setCharts] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    getCharts().then((chartsArray) => {
+      if (isMounted) {
+        setCharts(chartsArray);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div>
       <h1>Charts</h1>
+      {charts.map((chart) => (
+        <h3> {chart.chartName} </h3>
+      ))}
       {user ? (
         <Link type="button" className="btn btn-secondary" to="/create">
           {' '}
