@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { signInUser } from '../api/auth';
-import getCharts from '../data/chartData';
+import { getCharts } from '../data/chartData';
 
 export default function Charts({ user }) {
   const [charts, setCharts] = useState([]);

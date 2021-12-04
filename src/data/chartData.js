@@ -10,4 +10,17 @@ const getCharts = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getCharts;
+const createChart = (chartObj) => new Promise((resolve, reject) => {
+  axios
+    .post(`${dbUrl}/charts.json`, chartObj)
+    .then((response) => {
+      axios
+        .patch(`${dbUrl}/charts/${response.data.name}.json`, {
+          firebaseKey: response.data.name,
+        })
+        .then(resolve);
+    })
+    .catch(reject);
+});
+
+export { getCharts, createChart };
