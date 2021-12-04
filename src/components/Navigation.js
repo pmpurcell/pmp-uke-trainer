@@ -3,7 +3,7 @@ import {
   ProSidebar, Menu, MenuItem, SidebarFooter,
 } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { signInUser, signOutUser } from '../api/auth';
 
@@ -14,19 +14,19 @@ export default function Navigation({ user }) {
         <Menu iconShape="square">
           <MenuItem>
             Home
-            {/* <Link to="/" /> */}
+            <Link to="/" />
           </MenuItem>
           <MenuItem>
             Chords
-            {/* <Link to="/chords" /> */}
+            <Link to="/chords" />
           </MenuItem>
           <MenuItem>
             Charts
-            {/* <Link to="/charts" /> */}
+            <Link to="/charts" />
           </MenuItem>
           <MenuItem>
             Tuner
-            {/* <Link to="/tuner" /> */}
+            <Link to="/tuner" />
           </MenuItem>
           {user ? (
             <MenuItem
