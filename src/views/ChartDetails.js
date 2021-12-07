@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { getSingleChart } from '../data/chartData';
+import { deleteChart, getSingleChart } from '../data/chartData';
 
 export default function ChartDetails({ user }) {
   const [singleChart, setSingleChart] = useState({});
   const { firebaseKey } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     let isMounted = true;
@@ -21,8 +22,10 @@ export default function ChartDetails({ user }) {
     console.warn(`Editing ${singleChart.firebaseKey}`);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
     console.warn(`Deleting ${singleChart.firebaseKey}`);
+    e.preventDefault();
+    deleteChart(firebaseKey).then(() => history.push('/charts'));
   };
 
   const chartUser = singleChart.uid;

@@ -31,4 +31,13 @@ const createChart = (chartObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getCharts, createChart, getSingleChart };
+const deleteChart = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .delete(`${dbUrl}/charts/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
+export {
+  getCharts, createChart, getSingleChart, deleteChart,
+};

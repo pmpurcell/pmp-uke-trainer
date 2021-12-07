@@ -29,13 +29,16 @@ export default function Navigation({ user }) {
             <Link to="/tuner" />
           </MenuItem>
           {user ? (
-            <MenuItem
-              type="button"
-              className="btn btn-secondary"
-              onClick={signOutUser}
-            >
-              Sign Out
-            </MenuItem>
+            <>
+              <MenuItem>User: {user.fullName}</MenuItem>
+              <MenuItem
+                type="button"
+                className="btn btn-secondary"
+                onClick={signOutUser}
+              >
+                Sign Out
+              </MenuItem>
+            </>
           ) : (
             <MenuItem
               type="button"
@@ -54,6 +57,7 @@ export default function Navigation({ user }) {
 
 Navigation.propTypes = {
   user: PropTypes.shape({
+    fullName: PropTypes.string,
     isAdmin: PropTypes.bool,
   }),
 };
