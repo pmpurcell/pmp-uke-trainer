@@ -20,6 +20,7 @@ export default function ChartDetails({ user }) {
 
   const handleEdit = () => {
     console.warn(`Editing ${singleChart.firebaseKey}`);
+    history.push(`/edit/${singleChart.firebaseKey}`);
   };
 
   const handleDelete = (e) => {
