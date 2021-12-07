@@ -10,6 +10,13 @@ const getCharts = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleChart = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/charts/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
 const createChart = (chartObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/charts.json`, chartObj)
@@ -24,4 +31,4 @@ const createChart = (chartObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getCharts, createChart };
+export { getCharts, createChart, getSingleChart };
