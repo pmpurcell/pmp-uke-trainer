@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { deleteChart, getSingleChart } from '../data/chartData';
+import getCommentsByChartId from '../data/commentData';
 
 export default function ChartDetails({ user }) {
   const [singleChart, setSingleChart] = useState({});
+  const [commentArray, setCommentArray] = useState([]);
   const { firebaseKey } = useParams();
   const history = useHistory();
 
@@ -12,6 +14,7 @@ export default function ChartDetails({ user }) {
     let isMounted = true;
     if (isMounted) {
       getSingleChart(firebaseKey).then(setSingleChart);
+      getCommentsByChartId(firebaseKey).then(setCommentArray);
     }
     return () => {
       isMounted = false;
@@ -46,6 +49,12 @@ export default function ChartDetails({ user }) {
           </button>
         </>
       )}
+      {commentArray.map((comment) => (
+        <div key={comment.firebaseKey}>
+          <h6>{comment.userName}</h6>
+          <p>{comment.commentText}</p>
+        </div>
+      ))}
     </div>
   );
 }
