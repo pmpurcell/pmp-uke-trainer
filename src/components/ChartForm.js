@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { createChart } from '../data/chartData';
+import { createChart, updateChart } from '../data/chartData';
 
 const initialState = {
   chartName: '',
@@ -12,10 +12,23 @@ const initialState = {
   userName: '',
 };
 
-export default function ChartForm({ user }) {
+export default function ChartForm({ user, item = {} }) {
   const [formInput, setFormInput] = useState(initialState);
 
   const history = useHistory();
+
+  useEffect(() => {
+    if (item.firebaseKey) {
+      setFormInput({
+        chartName: item.chartName,
+        chartDescription: item.chartDescription,
+        chartFile: item.chartFile,
+        firebaseKey: item.firebaseKey,
+        uid: item.uid,
+        userName: item.userName,
+      });
+    }
+  }, [item]);
 
   const handleChange = (e) => {
     setFormInput((prevState) => ({
@@ -26,9 +39,15 @@ export default function ChartForm({ user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createChart({ ...formInput, uid: user.uid, userName: user.fullName }).then(
-      () => history.push('/charts'),
-    );
+    if (item.firebaseKey) {
+      updateChart(formInput).then(() => history.push('/charts'));
+    } else {
+      createChart({
+        ...formInput,
+        uid: user.uid,
+        userName: user.fullName,
+      }).then(() => history.push('/charts'));
+    }
   };
   return (
     <div>
@@ -83,4 +102,5 @@ ChartForm.propTypes = {
     fullName: PropTypes.string,
     isAdmin: PropTypes.bool,
   }).isRequired,
+  item: PropTypes.shape({}).isRequired,
 };
