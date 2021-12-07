@@ -48,7 +48,6 @@ export default function Navigation({ user }) {
         </Menu>
         <SidebarFooter>© Madden Purcell, 2021</SidebarFooter>
       </ProSidebar>
-      ;
     </div>
   );
 }

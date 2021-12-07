@@ -9,6 +9,7 @@ const initialState = {
   chartFile: '',
   firebaseKey: '',
   uid: '',
+  userName: '',
 };
 
 export default function ChartForm({ user }) {
@@ -25,7 +26,9 @@ export default function ChartForm({ user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createChart({ ...formInput, uid: user.uid }).then(() => history.push('/charts'));
+    createChart({ ...formInput, uid: user.uid, userName: user.fullName }).then(
+      () => history.push('/charts'),
+    );
   };
   return (
     <div>
@@ -77,6 +80,7 @@ export default function ChartForm({ user }) {
 ChartForm.propTypes = {
   user: PropTypes.shape({
     uid: PropTypes.string,
+    fullName: PropTypes.string,
     isAdmin: PropTypes.bool,
   }).isRequired,
 };

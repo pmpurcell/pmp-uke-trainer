@@ -5,12 +5,18 @@ import Home from '../views/Home';
 import Charts from '../views/Charts';
 import Chords from '../views/Chords';
 import Tuner from '../views/Tuner';
+import ChartDetails from '../views/ChartDetails';
 
 export default function PublicRoutes({ user }) {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/charts" component={() => <Charts user={user} />} />
+      <Route
+        exact
+        path="/details/:firebaseKey"
+        component={() => <ChartDetails user={user} />}
+      />
       <Route exact path="/chords" component={Chords} />
       <Route exact path="/tuner" component={Tuner} />
     </Switch>
