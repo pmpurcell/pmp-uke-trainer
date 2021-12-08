@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { createComment } from '../data/commentData';
 
@@ -10,8 +10,25 @@ const initialState = {
   userName: '',
 };
 
-export default function CommentForm({ user, chartId, setCommentArray }) {
+export default function CommentForm({
+  user,
+  chartId,
+  setCommentArray,
+  item = {},
+}) {
   const [formInput, setFormInput] = useState(initialState);
+
+  useEffect(() => {
+    if (item.firebaseKey) {
+      setFormInput({
+        chartID: item.chartID,
+        commentText: item.commentText,
+        firebaseKey: item.firebaseKey,
+        uid: item.uid,
+        userName: item.userName,
+      });
+    }
+  }, [item]);
 
   const handleChange = (e) => {
     setFormInput((prevState) => ({
@@ -59,4 +76,9 @@ CommentForm.propTypes = {
   }).isRequired,
   chartId: PropTypes.string.isRequired,
   setCommentArray: PropTypes.func.isRequired,
+  item: PropTypes.shape({}),
+};
+
+CommentForm.defaultProps = {
+  item: {},
 };
