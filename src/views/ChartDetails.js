@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { deleteChart, getSingleChart } from '../data/chartData';
-import getCommentsByChartId from '../data/commentData';
+import { getCommentsByChartId } from '../data/commentData';
+import CommentForm from '../components/CommentForm';
+import { signInUser } from '../api/auth';
 
 export default function ChartDetails({ user }) {
   const [singleChart, setSingleChart] = useState({});
@@ -49,12 +51,29 @@ export default function ChartDetails({ user }) {
           </button>
         </>
       )}
-      {commentArray.map((comment) => (
-        <div key={comment.firebaseKey}>
-          <h6>{comment.userName}</h6>
-          <p>{comment.commentText}</p>
-        </div>
-      ))}
+      <div id="commentDiv">
+        {commentArray.map((comment) => (
+          <div key={comment.firebaseKey}>
+            <h6>{comment.userName}</h6>
+            <p>{comment.commentText}</p>
+          </div>
+        ))}
+      </div>
+      {user ? (
+        <CommentForm
+          user={user}
+          chartId={firebaseKey}
+          setCommentArray={setCommentArray}
+        />
+      ) : (
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={signInUser}
+        >
+          Sign In To Comment
+        </button>
+      )}
     </div>
   );
 }
