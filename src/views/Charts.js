@@ -23,7 +23,7 @@ export default function Charts({ user }) {
     <div>
       <h1>Charts</h1>
       {charts.map((chart) => (
-        <div className="chart-card">
+        <div className="chart-card" key={chart.firebaseKey}>
           <h3> {chart.chartName} </h3>
           <Link
             type="button"

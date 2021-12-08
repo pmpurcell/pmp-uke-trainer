@@ -5,6 +5,7 @@ import { deleteChart, getSingleChart } from '../data/chartData';
 import { getCommentsByChartId } from '../data/commentData';
 import CommentForm from '../components/CommentForm';
 import { signInUser } from '../api/auth';
+import CommentCard from '../components/CommentCard';
 
 export default function ChartDetails({ user }) {
   const [singleChart, setSingleChart] = useState({});
@@ -53,10 +54,12 @@ export default function ChartDetails({ user }) {
       )}
       <div id="commentDiv">
         {commentArray.map((comment) => (
-          <div key={comment.firebaseKey}>
-            <h6>{comment.userName}</h6>
-            <p>{comment.commentText}</p>
-          </div>
+          <CommentCard
+            chartID={singleChart.firebaseKey}
+            comment={comment}
+            user={user}
+            setCommentArray={setCommentArray}
+          />
         ))}
       </div>
       {user ? (
