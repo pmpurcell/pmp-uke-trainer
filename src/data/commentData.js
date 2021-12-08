@@ -24,4 +24,13 @@ const createComment = (commentObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getCommentsByChartId, createComment };
+const deleteComment = (firebaseKey, chartID) => new Promise((resolve, reject) => {
+  axios
+    .delete(`${dbUrl}/comments/${firebaseKey}.json`)
+    .then(() => {
+      getCommentsByChartId(chartID).then(resolve);
+    })
+    .catch(reject);
+});
+
+export { getCommentsByChartId, createComment, deleteComment };
