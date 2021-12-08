@@ -10,4 +10,18 @@ const getCommentsByChartId = (chartID) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getCommentsByChartId;
+const createComment = (commentObj) => new Promise((resolve, reject) => {
+  axios
+    .post(`${dbUrl}/comments.json`, commentObj)
+    .then((response) => {
+      const firebaseKey = response.data.name;
+      axios
+        .patch(`${dbUrl}/comments/${firebaseKey}.json`, { firebaseKey })
+        .then(() => {
+          getCommentsByChartId(commentObj.chartID).then(resolve);
+        });
+    })
+    .catch(reject);
+});
+
+export { getCommentsByChartId, createComment };
