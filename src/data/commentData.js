@@ -33,4 +33,14 @@ const deleteComment = (firebaseKey, chartID) => new Promise((resolve, reject) =>
     .catch(reject);
 });
 
-export { getCommentsByChartId, createComment, deleteComment };
+const updateComment = (commentObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbUrl}/comments/${commentObj.firebaseKey}.json`, commentObj)
+    .then(() => {
+      getCommentsByChartId(commentObj.chartID).then(resolve).catch(reject);
+    });
+});
+
+export {
+  getCommentsByChartId, createComment, deleteComment, updateComment,
+};

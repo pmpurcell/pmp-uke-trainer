@@ -7,16 +7,17 @@ export default function CommentCard({
   comment,
   user,
   setCommentArray,
+  setEditItem,
 }) {
   const handleCommentDelete = (e) => {
     e.preventDefault();
     deleteComment(comment.firebaseKey, chartID).then(setCommentArray);
   };
 
-  const handleCommentEdit = (e) => {
-    e.preventDefault();
-    console.warn(`${comment.firebaseKey} edited!`);
-  };
+  // const handleCommentEdit = (e) => {
+  //   e.preventDefault();
+  //   console.warn(`${comment.firebaseKey} edited!`);
+  // };
   return (
     <div>
       <h6>{comment.userName}</h6>
@@ -26,7 +27,7 @@ export default function CommentCard({
           <button type="button" onClick={handleCommentDelete}>
             Delete
           </button>
-          <button type="button" onClick={handleCommentEdit}>
+          <button type="button" onClick={setEditItem}>
             Edit
           </button>
         </>
@@ -48,6 +49,7 @@ CommentCard.propTypes = {
     isAdmin: PropTypes.bool,
   }),
   setCommentArray: PropTypes.func.isRequired,
+  setEditItem: PropTypes.func.isRequired,
 };
 
 CommentCard.defaultProps = {

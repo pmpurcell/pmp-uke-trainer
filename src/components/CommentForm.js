@@ -56,7 +56,7 @@ export default function CommentForm({
             type="text"
             id="commentText"
             onChange={handleChange}
-            value={formInput.commentText || ''}
+            value={formInput.commentText}
             size="40"
           />
         </label>
