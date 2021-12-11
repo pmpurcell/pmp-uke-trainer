@@ -10,6 +10,13 @@ const getCommentsByChartId = (chartID) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleComment = (commentId) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/comments/${commentId}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
 const createComment = (commentObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/comments.json`, commentObj)
@@ -33,4 +40,17 @@ const deleteComment = (firebaseKey, chartID) => new Promise((resolve, reject) =>
     .catch(reject);
 });
 
-export { getCommentsByChartId, createComment, deleteComment };
+const updateComment = (commentObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbUrl}/comments/${commentObj.firebaseKey}.json`, commentObj)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
+
+export {
+  getCommentsByChartId,
+  createComment,
+  deleteComment,
+  updateComment,
+  getSingleComment,
+};

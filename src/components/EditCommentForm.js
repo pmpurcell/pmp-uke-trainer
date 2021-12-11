@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
-import { createComment } from '../data/commentData';
+import { useHistory } from 'react-router-dom';
+import { updateComment } from '../data/commentData';
 
-const initialState = {
-  chartID: '',
-  commentText: '',
-  firebaseKey: '',
-  uid: '',
-  userName: '',
-};
+export default function CommentForm({ item = {} }) {
+  const [formInput, setFormInput] = useState({});
 
-export default function CommentForm({
-  user,
-  chartId,
-  setCommentArray,
-  item = {},
-}) {
-  const [formInput, setFormInput] = useState(initialState);
+  const history = useHistory();
 
   useEffect(() => {
     if (item.firebaseKey) {
@@ -39,19 +29,14 @@ export default function CommentForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createComment({
-      ...formInput,
-      uid: user.uid,
-      userName: user.fullName,
-      chartID: chartId,
-    }).then(setCommentArray);
+    updateComment(formInput).then(() => history.push(`/details/${item.chartID}`));
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="commentText">
-          Leave a comment!
+          Edit comment!
           <input
             type="text"
             id="commentText"
@@ -69,13 +54,6 @@ export default function CommentForm({
 }
 
 CommentForm.propTypes = {
-  user: PropTypes.shape({
-    uid: PropTypes.string,
-    fullName: PropTypes.string,
-    isAdmin: PropTypes.bool,
-  }).isRequired,
-  chartId: PropTypes.string.isRequired,
-  setCommentArray: PropTypes.func.isRequired,
   item: PropTypes.shape({}),
 };
 
