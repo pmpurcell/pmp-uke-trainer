@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { updateComment } from '../data/commentData';
 
-export default function CommentForm({ item = {} }) {
+export default function EditCommentForm({ item = {} }) {
   const [formInput, setFormInput] = useState({});
 
   const history = useHistory();
@@ -53,10 +53,10 @@ export default function CommentForm({ item = {} }) {
   );
 }
 
-CommentForm.propTypes = {
+EditCommentForm.propTypes = {
   item: PropTypes.shape({}),
 };
 
-CommentForm.defaultProps = {
+EditCommentForm.defaultProps = {
   item: {},
 };
