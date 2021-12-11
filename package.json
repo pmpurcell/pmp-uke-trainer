@@ -7,6 +7,8 @@
     "@popperjs/core": "^2.9.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
+    "cloudinary-react": "^1.7.0",
+    "cors": "^2.8.5",
     "firebase": "^8.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

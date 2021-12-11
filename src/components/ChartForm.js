@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { createChart, updateChart } from '../data/chartData';
+import uploadFile from '../data/cloudinaryData';
 
 const initialState = {
   chartName: '',
@@ -14,6 +15,7 @@ const initialState = {
 
 export default function ChartForm({ user, item = {} }) {
   const [formInput, setFormInput] = useState(initialState);
+  const [fileState, setFileState] = useState(null);
 
   const history = useHistory();
 
@@ -37,16 +39,23 @@ export default function ChartForm({ user, item = {} }) {
     }));
   };
 
+  const handleFileChange = (e) => {
+    setFileState(e.target.files[0]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (item.firebaseKey) {
       updateChart(formInput).then(() => history.push('/charts'));
     } else {
-      createChart({
-        ...formInput,
-        uid: user.uid,
-        userName: user.fullName,
-      }).then(() => history.push('/charts'));
+      uploadFile(fileState).then((fileObj) => {
+        createChart({
+          ...formInput,
+          uid: user.uid,
+          userName: user.fullName,
+          chartFile: fileObj,
+        }).then(() => history.push('/charts'));
+      });
     }
   };
   return (
@@ -80,10 +89,9 @@ export default function ChartForm({ user, item = {} }) {
           <label htmlFor="chartFile" className="form-label">
             File
             <input
-              type="text"
+              type="file"
               className="form-control"
-              onChange={handleChange}
-              value={formInput.chartFile || ''}
+              onChange={handleFileChange}
               id="chartFile"
             />
           </label>
