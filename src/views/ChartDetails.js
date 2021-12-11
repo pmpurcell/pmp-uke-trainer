@@ -10,7 +10,6 @@ import CommentCard from '../components/CommentCard';
 export default function ChartDetails({ user }) {
   const [singleChart, setSingleChart] = useState({});
   const [commentArray, setCommentArray] = useState([]);
-  const [editItem, setEditItem] = useState({});
   const { firebaseKey } = useParams();
   const history = useHistory();
 
@@ -60,7 +59,6 @@ export default function ChartDetails({ user }) {
             comment={comment}
             user={user}
             setCommentArray={setCommentArray}
-            setEditItem={setEditItem}
           />
         ))}
       </div>
@@ -69,7 +67,6 @@ export default function ChartDetails({ user }) {
           user={user}
           chartId={firebaseKey}
           setCommentArray={setCommentArray}
-          item={editItem}
         />
       ) : (
         <button

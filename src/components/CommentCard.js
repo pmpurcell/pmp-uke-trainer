@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { deleteComment } from '../data/commentData';
 
 export default function CommentCard({
@@ -7,17 +8,16 @@ export default function CommentCard({
   comment,
   user,
   setCommentArray,
-  setEditItem,
 }) {
+  const history = useHistory();
   const handleCommentDelete = (e) => {
     e.preventDefault();
     deleteComment(comment.firebaseKey, chartID).then(setCommentArray);
   };
 
-  // const handleCommentEdit = (e) => {
-  //   e.preventDefault();
-  //   console.warn(`${comment.firebaseKey} edited!`);
-  // };
+  const handleCommentEdit = () => {
+    history.push(`/editComment/${comment.firebaseKey}`);
+  };
   return (
     <div>
       <h6>{comment.userName}</h6>
@@ -27,7 +27,7 @@ export default function CommentCard({
           <button type="button" onClick={handleCommentDelete}>
             Delete
           </button>
-          <button type="button" onClick={setEditItem}>
+          <button type="button" onClick={handleCommentEdit}>
             Edit
           </button>
         </>
@@ -49,7 +49,6 @@ CommentCard.propTypes = {
     isAdmin: PropTypes.bool,
   }),
   setCommentArray: PropTypes.func.isRequired,
-  setEditItem: PropTypes.func.isRequired,
 };
 
 CommentCard.defaultProps = {
