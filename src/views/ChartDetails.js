@@ -41,7 +41,11 @@ export default function ChartDetails({ user }) {
     <div>
       <h1>{singleChart.chartName}</h1>
       <h5> Uploaded by {singleChart.userName} </h5>
-      <img src={singleChart.chartFile} alt={singleChart.chartName} />
+      <img
+        src={singleChart.chartFile}
+        alt={singleChart.chartName}
+        style={{ width: '600px', height: '600px' }}
+      />
       <p>{singleChart.chartDescription}</p>
       {(user?.uid === chartUser || user?.isAdmin) && (
         <>
