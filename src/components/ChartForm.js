@@ -46,7 +46,6 @@ export default function ChartForm({ user, item = {} }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (item.firebaseKey) {
-      // updateChart(formInput).then(() => history.push('/charts'));
       uploadFile(fileState).then((fileObj) => {
         updateChart({
           ...formInput,
