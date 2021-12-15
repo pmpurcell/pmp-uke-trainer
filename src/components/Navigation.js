@@ -9,7 +9,7 @@ import { signInUser, signOutUser } from '../api/auth';
 
 export default function Navigation({ user }) {
   return (
-    <div>
+    <div id="navbar">
       <ProSidebar>
         <Menu iconShape="square">
           <MenuItem>

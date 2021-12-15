@@ -3,4 +3,126 @@
 
 body {
   background-color: $favColor !important;
+  color: $text;
+}
+
+#buttonDiv button {
+  background-color: $btnBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  color: $text;
+  width: 100px;
+  height: 100px;
+}
+
+#chartsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#addButton {
+  background-color: $btnBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  color: $text;
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  width: 200px;
+}
+
+#signInButton {
+  background-color: $btnBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  color: $text;
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  width: 200px;
+}
+
+.chart-card {
+  background-color: $contentBackground;
+  border: 4px $border solid;
+  margin: 20px 0px;
+  position: relative;
+  width: 800px;
+  height: 75px;
+}
+
+.chart-card h3 {
+  color: $text;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.chart-card .btn {
+  background-color: $btnBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+#detailsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#detailsDiv img {
+  border: 8px $border solid;
+  margin: 10px;
+}
+
+#controlDiv {
+  background-color: $contentBackground;
+  border: 4px $border solid;
+  color: $text;
+  padding: 20px;
+  margin: 10px
+}
+
+.comment-card {
+  background-color: $contentBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  margin: 20px 0px;
+  padding: 20px;
+  position: relative;
+  width: 800px;
+}
+
+.comment-card p {
+  background-color: white;
+  border: 2px solid black;
+}
+
+#tunerDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#tunerDiv img {
+  border: 8px $border solid;
+  margin: 10px;
+}
+
+#buttonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+#buttonDiv button {
+  margin: 20px;
+  font-size: 30px;
 }

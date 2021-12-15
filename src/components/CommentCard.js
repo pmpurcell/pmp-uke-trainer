@@ -19,7 +19,7 @@ export default function CommentCard({
     history.push(`/editComment/${comment.firebaseKey}`);
   };
   return (
-    <div>
+    <div className="comment-card">
       <h6>{comment.userName}</h6>
       <p>{comment.commentText}</p>
       {(user?.uid === comment.uid || user?.isAdmin) && (
