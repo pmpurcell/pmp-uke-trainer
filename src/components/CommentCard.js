@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { deleteComment } from '../data/commentData';
 
 export default function CommentCard({
@@ -20,7 +20,9 @@ export default function CommentCard({
   };
   return (
     <div className="comment-card">
-      <h6>{comment.userName}</h6>
+      <Link to={`/userDetails/${comment.userName}`}>
+        <h6>{comment.userName}</h6>
+      </Link>
       <p>{comment.commentText}</p>
       {(user?.uid === comment.uid || user?.isAdmin) && (
         <>

@@ -63,6 +63,7 @@ export default function ChartDetails({ user }) {
         <h4>Comments</h4>
         {commentArray.map((comment) => (
           <CommentCard
+            key={comment.firebaseKey}
             chartID={singleChart.firebaseKey}
             comment={comment}
             user={user}

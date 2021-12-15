@@ -22,6 +22,13 @@ export default function Charts({ user }) {
   return (
     <div>
       <div id="chartsDiv">
+        <Link
+          type="button"
+          className="btn btn-primary"
+          to={`/userDetails/${user.fullName}`}
+        >
+          My Charts{' '}
+        </Link>
         <h1>Charts</h1>
         {charts.map((chart) => (
           <div className="chart-card" key={chart.firebaseKey}>
@@ -63,6 +70,7 @@ export default function Charts({ user }) {
 Charts.propTypes = {
   user: PropTypes.shape({
     isAdmin: PropTypes.bool,
+    fullName: PropTypes.string,
   }),
 };
 
