@@ -22,13 +22,25 @@ export default function Charts({ user }) {
   return (
     <div>
       <div id="chartsDiv">
-        <Link
-          type="button"
-          className="btn btn-primary"
-          to={`/userDetails/${user.fullName}`}
-        >
-          My Charts{' '}
-        </Link>
+        {user ? (
+          <Link
+            type="button"
+            id="signInButton"
+            className="btn btn-primary"
+            to={`/userDetails/${user.fullName}`}
+          >
+            My Charts{' '}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            id="signInButton"
+            className="btn btn-secondary create-btn"
+            onClick={signInUser}
+          >
+            Sign In
+          </button>
+        )}
         <h1>Charts</h1>
         {charts.map((chart) => (
           <div className="chart-card" key={chart.firebaseKey}>
