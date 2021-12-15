@@ -10,6 +10,13 @@ const getCharts = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getChartsByUserName = (userName) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/charts.json?orderBy="userName"&equalTo="${userName}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
 const getSingleChart = (firebaseKey) => new Promise((resolve, reject) => {
   axios
     .get(`${dbUrl}/charts/${firebaseKey}.json`)
@@ -46,5 +53,10 @@ const updateChart = (chartObject) => new Promise((resolve, reject) => {
 });
 
 export {
-  getCharts, createChart, getSingleChart, deleteChart, updateChart,
+  getCharts,
+  createChart,
+  getSingleChart,
+  deleteChart,
+  updateChart,
+  getChartsByUserName,
 };

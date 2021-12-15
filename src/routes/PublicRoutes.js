@@ -6,6 +6,7 @@ import Charts from '../views/Charts';
 import Chords from '../views/Chords';
 import Tuner from '../views/Tuner';
 import ChartDetails from '../views/ChartDetails';
+import UserDetails from '../views/UserDetails';
 
 export default function PublicRoutes({ user }) {
   return (
@@ -17,6 +18,7 @@ export default function PublicRoutes({ user }) {
         path="/details/:firebaseKey"
         component={() => <ChartDetails user={user} />}
       />
+      <Route exact path="/userDetails/:userName" component={UserDetails} />
       <Route exact path="/chords" component={Chords} />
       <Route exact path="/tuner" component={Tuner} />
     </Switch>

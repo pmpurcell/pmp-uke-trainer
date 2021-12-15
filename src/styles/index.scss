@@ -6,6 +6,10 @@ body {
   color: $text;
 }
 
+a {
+  color: $text !important;
+}
+
 #buttonDiv button {
   background-color: $btnBackground;
   border: 4px $border solid;
