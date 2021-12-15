@@ -38,7 +38,7 @@ export default function ChartDetails({ user }) {
   const chartUser = singleChart.uid;
 
   return (
-    <div>
+    <div id="detailsDiv">
       <h1>{singleChart.chartName}</h1>
       <h5> Uploaded by {singleChart.userName} </h5>
       <img
@@ -46,18 +46,21 @@ export default function ChartDetails({ user }) {
         alt={singleChart.chartName}
         style={{ width: '600px', height: '600px' }}
       />
-      <p>{singleChart.chartDescription}</p>
-      {(user?.uid === chartUser || user?.isAdmin) && (
-        <>
-          <button type="button" onClick={handleDelete}>
-            Delete
-          </button>
-          <button type="button" onClick={handleEdit}>
-            Edit
-          </button>
-        </>
-      )}
+      <div id="controlDiv">
+        <p>{singleChart.chartDescription}</p>
+        {(user?.uid === chartUser || user?.isAdmin) && (
+          <>
+            <button type="button" onClick={handleDelete}>
+              Delete
+            </button>
+            <button type="button" onClick={handleEdit}>
+              Edit
+            </button>
+          </>
+        )}
+      </div>
       <div id="commentDiv">
+        <h4>Comments</h4>
         {commentArray.map((comment) => (
           <CommentCard
             chartID={singleChart.firebaseKey}

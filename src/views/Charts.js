@@ -21,33 +21,41 @@ export default function Charts({ user }) {
 
   return (
     <div>
-      <h1>Charts</h1>
-      {charts.map((chart) => (
-        <div className="chart-card" key={chart.firebaseKey}>
-          <h3> {chart.chartName} </h3>
+      <div id="chartsDiv">
+        <h1>Charts</h1>
+        {charts.map((chart) => (
+          <div className="chart-card" key={chart.firebaseKey}>
+            <h3> {chart.chartName} </h3>
+            <Link
+              type="button"
+              className="btn btn-primary"
+              to={`/details/${chart.firebaseKey}`}
+            >
+              Details
+            </Link>
+          </div>
+        ))}
+        {user ? (
           <Link
             type="button"
-            className="btn btn-primary"
-            to={`/details/${chart.firebaseKey}`}
+            id="addButton"
+            className="btn btn-secondary"
+            to="/create"
           >
-            Details
+            {' '}
+            Add New Chart{' '}
           </Link>
-        </div>
-      ))}
-      {user ? (
-        <Link type="button" className="btn btn-secondary" to="/create">
-          {' '}
-          Add New Chart{' '}
-        </Link>
-      ) : (
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={signInUser}
-        >
-          Sign In To Upload
-        </button>
-      )}
+        ) : (
+          <button
+            type="button"
+            id="signInButton"
+            className="btn btn-secondary create-btn"
+            onClick={signInUser}
+          >
+            Sign In To Upload
+          </button>
+        )}
+      </div>
     </div>
   );
 }
