@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { deleteChart, getSingleChart } from '../data/chartData';
 import { getCommentsByChartId } from '../data/commentData';
@@ -40,7 +40,13 @@ export default function ChartDetails({ user }) {
   return (
     <div id="detailsDiv">
       <h1>{singleChart.chartName}</h1>
-      <h5> Uploaded by {singleChart.userName} </h5>
+      <h5>
+        {' '}
+        Uploaded by
+        <Link to={`/userDetails/${singleChart.userName}`}>
+          {singleChart.userName}
+        </Link>
+      </h5>
       <img
         src={singleChart.chartFile}
         alt={singleChart.chartName}
