@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ProSidebar, Menu, MenuItem, SidebarFooter,
 } from 'react-pro-sidebar';
@@ -8,10 +8,18 @@ import { PropTypes } from 'prop-types';
 import { signInUser, signOutUser } from '../api/auth';
 
 export default function Navigation({ user }) {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div id="navbar">
-      <ProSidebar>
+      <ProSidebar collapsed={collapsed}>
         <Menu iconShape="square">
+          <MenuItem
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            Collapse
+          </MenuItem>
           <MenuItem>
             Home
             <Link to="/" />
