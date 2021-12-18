@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { createComment } from '../data/commentData';
 
 const initialState = {
-  chartID: '',
+  chartId: '',
   commentText: '',
   firebaseKey: '',
   uid: '',
@@ -21,7 +21,7 @@ export default function CommentForm({
   useEffect(() => {
     if (item.firebaseKey) {
       setFormInput({
-        chartID: item.chartID,
+        chartId: item.chartId,
         commentText: item.commentText,
         firebaseKey: item.firebaseKey,
         uid: item.uid,
@@ -43,7 +43,7 @@ export default function CommentForm({
       ...formInput,
       uid: user.uid,
       userName: user.fullName,
-      chartID: chartId,
+      chartId,
     }).then(setCommentArray);
   };
 

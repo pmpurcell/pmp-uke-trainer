@@ -17,7 +17,6 @@ function Initialize() {
           isAdmin: process.env.REACT_APP_ADMIN_UID === authed.uid,
         };
         setUser(userInfoObj);
-        console.warn(userInfoObj);
       } else if (user || user === null) {
         setUser(false);
       }

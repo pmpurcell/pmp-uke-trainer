@@ -16,7 +16,7 @@ export default function UserDetails() {
     };
   }, []);
   return (
-    <div>
+    <div id="userDiv">
       <h1>{userName}</h1>
       {userChartArray.map((userChart) => (
         <div className="chart-card" key={userChart.firebaseKey}>
