@@ -4,8 +4,8 @@ import ChartForm from '../components/ChartForm';
 
 export default function Create({ user }) {
   return (
-    <div>
-      <h1>Create</h1>
+    <div className="chartFormDiv">
+      <h1>Add a new chart!</h1>
       <ChartForm user={user} />
     </div>
   );

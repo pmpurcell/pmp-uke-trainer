@@ -18,29 +18,17 @@ export default function Navigation({ user }) {
       <ProSidebar collapsed={collapsed}>
         <Menu iconShape="square">
           {collapsed ? (
-            <MenuItem
-              type="button"
-              // className="btn btn-secondary"
-              onClick={() => setCollapsed(!collapsed)}
-            >
-              <BsFillArrowLeftSquareFill />
+            <MenuItem type="button" onClick={() => setCollapsed(!collapsed)}>
+              <BsFillArrowLeftSquareFill value={{ style: { size: '4em' } }} />
             </MenuItem>
           ) : (
             <>
-              <MenuItem
-                type="button"
-                // className="btn btn-secondary"
-                onClick={() => setCollapsed(!collapsed)}
-              >
+              <MenuItem type="button" onClick={() => setCollapsed(!collapsed)}>
                 <BsFillArrowRightSquareFill />
               </MenuItem>
               <MenuItem>
                 Home
                 <Link to="/" />
-              </MenuItem>
-              <MenuItem>
-                Chords
-                <Link to="/chords" />
               </MenuItem>
               <MenuItem>
                 Charts

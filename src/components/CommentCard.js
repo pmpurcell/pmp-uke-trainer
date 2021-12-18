@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { deleteComment } from '../data/commentData';
 
 export default function CommentCard({
-  chartID,
+  chartId,
   comment,
   user,
   setCommentArray,
@@ -12,7 +12,7 @@ export default function CommentCard({
   const history = useHistory();
   const handleCommentDelete = (e) => {
     e.preventDefault();
-    deleteComment(comment.firebaseKey, chartID).then(setCommentArray);
+    deleteComment(comment.firebaseKey, chartId).then(setCommentArray);
   };
 
   const handleCommentEdit = () => {
@@ -39,7 +39,7 @@ export default function CommentCard({
 }
 
 CommentCard.propTypes = {
-  chartID: PropTypes.string.isRequired,
+  chartId: PropTypes.string.isRequired,
   comment: PropTypes.shape({
     userName: PropTypes.string,
     commentText: PropTypes.string,

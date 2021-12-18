@@ -11,7 +11,7 @@ export default function EditCommentForm({ item = {} }) {
   useEffect(() => {
     if (item.firebaseKey) {
       setFormInput({
-        chartID: item.chartID,
+        chartId: item.chartId,
         commentText: item.commentText,
         firebaseKey: item.firebaseKey,
         uid: item.uid,
@@ -29,11 +29,11 @@ export default function EditCommentForm({ item = {} }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateComment(formInput).then(() => history.push(`/details/${item.chartID}`));
+    updateComment(formInput).then(() => history.push(`/details/${item.chartId}`));
   };
 
   return (
-    <div>
+    <div id="commentFormDiv">
       <form onSubmit={handleSubmit}>
         <label htmlFor="commentText">
           Edit comment!

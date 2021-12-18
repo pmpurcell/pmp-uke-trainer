@@ -11,15 +11,15 @@ a {
 }
 
 #navbar {
-  position: absolute;
+  position: fixed;
   right: 0px;
-  height: 100%;
+  height: 100vh;
 }
 
-.pro-sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+#tunerBar {
+  position: fixed;
+  left: 0px;
+  height: 100vh;
 }
 
 .tuner-button {
@@ -29,6 +29,15 @@ a {
   color: $text;
   width: 100px;
   height: 100px;
+}
+
+.tuner-bar-button {
+  background-color: $btnBackground;
+  border: 4px $border solid;
+  border-radius: 20px;
+  color: $text;
+  width: 50px;
+  height: 50px;
 }
 
 #homeDiv {
@@ -48,7 +57,7 @@ a {
   width: 200px;  
 }
 
-#chartsDiv {
+#chartsDiv, #userDiv, .chartFormDiv, #commentFormDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,25 +89,21 @@ a {
   background-color: $contentBackground;
   border: 4px $border solid;
   margin: 20px 0px;
-  position: relative;
-  width: 800px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
   height: 75px;
-}
 
-.chart-card h3 {
-  color: $text;
-  position: absolute;
-  left: 20px;
-  top: 10px;
-}
-
-.chart-card .btn {
-  background-color: $btnBackground;
-  border: 4px $border solid;
-  border-radius: 20px;
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
+  h3 {
+    color: $text;
+  }
+  .btn {
+    background-color: $btnBackground;
+    border: 4px $border solid;
+    border-radius: 20px;
+  }
 }
 
 #detailsDiv {
@@ -108,9 +113,11 @@ a {
   justify-content: space-evenly;
 }
 
-#detailsDiv img {
+#chartImg {
   border: 8px $border solid;
   margin: 10px;
+  width: 600px;
+  height: 600px;
 }
 
 #controlDiv {
@@ -118,7 +125,8 @@ a {
   border: 4px $border solid;
   color: $text;
   padding: 20px;
-  margin: 10px
+  margin: 10px;
+  width: 600px;
 }
 
 .comment-card {
@@ -129,11 +137,10 @@ a {
   padding: 20px;
   position: relative;
   width: 800px;
-}
-
-.comment-card p {
-  background-color: white;
-  border: 2px solid black;
+  p {
+    background-color: white;
+    border: 2px solid black;
+  }
 }
 
 #tunerDiv {
@@ -141,11 +148,10 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-}
-
-#tunerDiv img {
-  border: 8px $border solid;
-  margin: 10px;
+  img {
+    border: 8px $border solid;
+    margin: 10px;
+  }
 }
 
 #buttonDiv {
@@ -153,9 +159,41 @@ a {
   flex-direction: row;
   justify-content: space-evenly;
   margin: 10px;
+  button {
+    margin: 20px;
+    font-size: 30px;
+  }
 }
 
-#buttonDiv button {
-  margin: 20px;
-  font-size: 30px;
+@media (max-width: 650px) {
+  .chart-card {
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+  }
+
+  #detailsDiv {
+    width: 600px;
+  }
+
+  #tunerDiv img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+  }
+
+  #buttonDiv {
+    width: 300px;
+    justify-content: center;
+    button {
+      margin: 5px;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+
+#commentDiv {
+  display: flex;
+  flex-direction: column;
+}
 }

@@ -25,12 +25,10 @@ export default function ChartDetails({ user }) {
   }, []);
 
   const handleEdit = () => {
-    console.warn(`Editing ${singleChart.firebaseKey}`);
     history.push(`/edit/${singleChart.firebaseKey}`);
   };
 
   const handleDelete = (e) => {
-    console.warn(`Deleting ${singleChart.firebaseKey}`);
     e.preventDefault();
     deleteChart(firebaseKey).then(() => history.push('/charts'));
   };
@@ -42,15 +40,15 @@ export default function ChartDetails({ user }) {
       <h1>{singleChart.chartName}</h1>
       <h5>
         {' '}
-        Uploaded by
+        Uploaded by{' '}
         <Link to={`/userDetails/${singleChart.userName}`}>
           {singleChart.userName}
         </Link>
       </h5>
       <img
+        id="chartImg"
         src={singleChart.chartFile}
         alt={singleChart.chartName}
-        style={{ width: '600px', height: '600px' }}
       />
       <div id="controlDiv">
         <p>{singleChart.chartDescription}</p>
@@ -70,7 +68,7 @@ export default function ChartDetails({ user }) {
         {commentArray.map((comment) => (
           <CommentCard
             key={comment.firebaseKey}
-            chartID={singleChart.firebaseKey}
+            chartId={singleChart.firebaseKey}
             comment={comment}
             user={user}
             setCommentArray={setCommentArray}

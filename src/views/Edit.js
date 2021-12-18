@@ -16,7 +16,7 @@ export default function Edit() {
     };
   }, []);
   return (
-    <div>
+    <div className="chartFormDiv">
       <h1> Edit {chartItem.chartName} </h1>
       <ChartForm item={chartItem} />
     </div>

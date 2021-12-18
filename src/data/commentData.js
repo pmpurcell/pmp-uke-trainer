@@ -3,9 +3,9 @@ import firebaseConfig from '../api/apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-const getCommentsByChartId = (chartID) => new Promise((resolve, reject) => {
+const getCommentsByChartId = (chartId) => new Promise((resolve, reject) => {
   axios
-    .get(`${dbUrl}/comments.json?orderBy="chartID"&equalTo="${chartID}"`)
+    .get(`${dbUrl}/comments.json?orderBy="chartId"&equalTo="${chartId}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
@@ -25,17 +25,17 @@ const createComment = (commentObj) => new Promise((resolve, reject) => {
       axios
         .patch(`${dbUrl}/comments/${firebaseKey}.json`, { firebaseKey })
         .then(() => {
-          getCommentsByChartId(commentObj.chartID).then(resolve);
+          getCommentsByChartId(commentObj.chartId).then(resolve);
         });
     })
     .catch(reject);
 });
 
-const deleteComment = (firebaseKey, chartID) => new Promise((resolve, reject) => {
+const deleteComment = (firebaseKey, chartId) => new Promise((resolve, reject) => {
   axios
     .delete(`${dbUrl}/comments/${firebaseKey}.json`)
     .then(() => {
-      getCommentsByChartId(chartID).then(resolve);
+      getCommentsByChartId(chartId).then(resolve);
     })
     .catch(reject);
 });
