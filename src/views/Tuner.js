@@ -18,16 +18,32 @@ export default function Tuner() {
         alt="Ukulele"
       />
       <div id="buttonDiv">
-        <button type="button" onClick={() => playNote(gNote)}>
+        <button
+          className="tuner-button"
+          type="button"
+          onClick={() => playNote(gNote)}
+        >
           G
         </button>
-        <button type="button" onClick={() => playNote(cNote)}>
+        <button
+          className="tuner-button"
+          type="button"
+          onClick={() => playNote(cNote)}
+        >
           C
         </button>
-        <button type="button" onClick={() => playNote(eNote)}>
+        <button
+          className="tuner-button"
+          type="button"
+          onClick={() => playNote(eNote)}
+        >
           E
         </button>
-        <button type="button" onClick={() => playNote(aNote)}>
+        <button
+          className="tuner-button"
+          type="button"
+          onClick={() => playNote(aNote)}
+        >
           A
         </button>
       </div>
