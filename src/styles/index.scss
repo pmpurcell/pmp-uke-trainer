@@ -10,6 +10,18 @@ a {
   color: $text !important;
 }
 
+#navbar {
+  position: absolute;
+  right: 0px;
+  height: 100%;
+}
+
+.pro-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 #buttonDiv button {
   background-color: $btnBackground;
   border: 4px $border solid;
