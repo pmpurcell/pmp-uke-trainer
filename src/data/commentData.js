@@ -1,5 +1,6 @@
 import axios from 'axios';
 import firebaseConfig from '../api/apiKeys';
+import { deleteChart } from './chartData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -47,10 +48,20 @@ const updateComment = (commentObj) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const deleteAllComments = (chartId) => new Promise((resolve, reject) => {
+  getCommentsByChartId(chartId)
+    .then((commentArray) => {
+      const deleteComments = commentArray.map((comment) => deleteComment(comment.firebaseKey, chartId));
+      Promise.all([...deleteComments]).then(() => resolve(deleteChart(chartId)));
+    })
+    .catch(reject);
+});
+
 export {
   getCommentsByChartId,
   createComment,
   deleteComment,
   updateComment,
   getSingleComment,
+  deleteAllComments,
 };
