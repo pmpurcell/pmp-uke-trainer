@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { deleteChart, getSingleChart } from '../data/chartData';
-import { getCommentsByChartId } from '../data/commentData';
+import { getSingleChart } from '../data/chartData';
+import { deleteAllComments, getCommentsByChartId } from '../data/commentData';
 import CommentForm from '../components/CommentForm';
 import { signInUser } from '../api/auth';
 import CommentCard from '../components/CommentCard';
@@ -30,7 +30,7 @@ export default function ChartDetails({ user }) {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteChart(firebaseKey).then(() => history.push('/charts'));
+    deleteAllComments(firebaseKey).then(() => history.push('/charts'));
   };
 
   const chartUser = singleChart.uid;
