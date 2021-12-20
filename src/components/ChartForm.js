@@ -46,12 +46,10 @@ export default function ChartForm({ user, item = {} }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (item.firebaseKey) {
-      uploadFile(fileState).then((fileObj) => {
-        updateChart({
-          ...formInput,
-          chartFile: fileObj,
-        }).then(() => history.push('/charts'));
-      });
+      updateChart({
+        ...formInput,
+        // chartFile: fileObj,
+      }).then(() => history.push('/charts'));
     } else {
       uploadFile(fileState).then((fileObj) => {
         createChart({
@@ -90,17 +88,19 @@ export default function ChartForm({ user, item = {} }) {
             />
           </label>
         </div>
-        <div className="mb-3">
-          <label htmlFor="chartFile" className="form-label">
-            File
-            <input
-              type="file"
-              className="form-control"
-              onChange={handleFileChange}
-              id="chartFile"
-            />
-          </label>
-        </div>
+        {!item.firebaseKey && (
+          <div className="mb-3">
+            <label htmlFor="chartFile" className="form-label">
+              File
+              <input
+                type="file"
+                className="form-control"
+                onChange={handleFileChange}
+                id="chartFile"
+              />
+            </label>
+          </div>
+        )}
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
