@@ -1,4 +1,4 @@
-# UkeTrainer
+# UkeTrainer [![Netlify Status](https://api.netlify.com/api/v1/badges/c2b3264f-d100-4d2c-94d6-1bdad6594b3e/deploy-status)](https://app.netlify.com/sites/uke-trainer/deploys)
 
 Have you ever wanted to learn the ukulele? Now you can with this fun and simple application designed for new learners and skilled players alike!
 
