@@ -4,6 +4,13 @@ Have you ever wanted to learn the ukulele? Now you can with this fun and simple 
 
 # Getting Started
 
+```
+git clone git@github.com:pmpurcell/pmp-uke-trainer.git
+cd pmp-uke-trainer
+code .
+npm start
+```
+
 # About the User
 The user is any person who wants to learn the ukulele by viewing the music charts of other users or any person who would like to share their knowledge of ukulele playing.
 
@@ -14,6 +21,7 @@ Logged in users can upload their own charts as an image file, and leave comments
 Logged in user can edit and delete their own comments and charts.
 
 # Video Walkthrough
+[View Loom Walkthrough](https://www.loom.com/share/808236a5fb5a45109c3391c1ec633771)
 
 # Relevant Links
 
