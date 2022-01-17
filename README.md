@@ -33,6 +33,9 @@ Logged in user can edit and delete their own comments and charts.
 
 [dbDiagram](https://dbdiagram.io/d/61a594278c901501c0d87604)
 
+# Contributors
+[Madden Purcell](https://github.com/pmpurcell)
+
 # Code Snippet
 
 # Project Screenshots
