@@ -33,9 +33,6 @@ Logged in user can edit and delete their own comments and charts.
 
 [dbDiagram](https://dbdiagram.io/d/61a594278c901501c0d87604)
 
-# Contributors
-[Madden Purcell](https://github.com/pmpurcell)
-
 # Code Snippet
 
 # Project Screenshots
@@ -51,5 +48,5 @@ Logged in user can edit and delete their own comments and charts.
 ### Tuner View
 ![Screenshot (63)](https://user-images.githubusercontent.com/86082231/146828098-e0ad8547-27c7-4802-bddf-031bf8c37aa2.png)
 
-
-
+# Contributors
+[Madden Purcell](https://github.com/pmpurcell)
