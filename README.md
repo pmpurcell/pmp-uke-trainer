@@ -1,6 +1,7 @@
 # UkeTrainer [![Netlify Status](https://api.netlify.com/api/v1/badges/c2b3264f-d100-4d2c-94d6-1bdad6594b3e/deploy-status)](https://app.netlify.com/sites/uke-trainer/deploys)
 
 Have you ever wanted to learn the ukulele? Now you can with this fun and simple application designed for new learners and skilled players alike!
+[View App](https://uke-trainer.netlify.app/)
 
 # Getting Started
 
@@ -32,8 +33,6 @@ Logged in user can edit and delete their own comments and charts.
 [Data Flowchart](https://docs.google.com/presentation/d/150pbPMswwvxcIecNT_T0ZeW2giK0yruHtbN3teiehhY/edit#slide=id.p)
 
 [dbDiagram](https://dbdiagram.io/d/61a594278c901501c0d87604)
-
-# Code Snippet
 
 # Project Screenshots
 ### Home View
