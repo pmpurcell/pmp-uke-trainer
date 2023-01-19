@@ -4,6 +4,7 @@ import 'firebase/auth';
 import Navigation from '../components/Navigation';
 import Routes from '../routes';
 import TunerBar from '../components/TunerBar';
+import MobileNavbar from '../components/MobileNavbar';
 
 function Initialize() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function Initialize() {
       <Navigation user={user} />
       <TunerBar />
       <Routes user={user} />
+      <MobileNavbar />
     </div>
   );
 }

@@ -163,6 +163,28 @@ a {
   }
 }
 
+#mobileNavbar {
+  background-color: $sidebar-bg-color;
+  bottom: 0;
+  height: 6 rem;
+  padding: 16px;
+  position: sticky;
+  width: 100%;
+  visibility: hidden;
+}
+.nav-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.nav-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 650px) {
   .chart-card {
     flex-direction: column;
@@ -172,6 +194,23 @@ a {
 
   #detailsDiv {
     width: 600px;
+  }
+
+  #navbar {
+    visibility: hidden;
+  }
+  
+  #tunerBar {
+    visibility: hidden;
+  }
+
+  #homeDiv img {
+    width: 300px;
+    height: 300px;
+  }
+
+  #mobileNavbar {
+    visibility: visible;
   }
 
   #tunerDiv img {
@@ -194,4 +233,5 @@ a {
   display: flex;
   flex-direction: column;
 }
+
 }
