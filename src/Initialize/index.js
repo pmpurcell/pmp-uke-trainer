@@ -24,7 +24,7 @@ function Initialize() {
   }, []);
 
   return (
-    <div className="App flex">
+    <div className="App">
       <Navigation user={user} />
       <TunerBar />
       <Routes user={user} />
