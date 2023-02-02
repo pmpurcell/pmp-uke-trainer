@@ -40,12 +40,6 @@ a {
   height: 50px;
 }
 
-#homeDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
 .home-button {
   background-color: $btnBackground;
   border: 4px $border solid;
@@ -57,7 +51,7 @@ a {
   width: 200px;  
 }
 
-#chartsDiv, #userDiv, .chartFormDiv, #commentFormDiv {
+#homeDiv, #chartsDiv, #userDiv, .chartFormDiv, #commentFormDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,6 +77,17 @@ a {
   height: 50px;
   text-align: center;
   width: 200px;
+}
+
+.sign-in-btn {  
+  background-color: transparent;
+  border: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+ justify-content: space-evenly;
 }
 
 .chart-card {
@@ -172,6 +177,11 @@ a {
   width: 100%;
   visibility: hidden;
 }
+
+.mobile-view-button {
+  visibility: hidden;
+}
+
 .nav-row {
   display: flex;
   flex-direction: row;
@@ -210,6 +220,10 @@ a {
   }
 
   #mobileNavbar {
+    visibility: visible;
+  }
+
+  .mobile-view-button {
     visibility: visible;
   }
 
