@@ -40,12 +40,6 @@ a {
   height: 50px;
 }
 
-#homeDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
 .home-button {
   background-color: $btnBackground;
   border: 4px $border solid;
@@ -57,7 +51,7 @@ a {
   width: 200px;  
 }
 
-#chartsDiv, #userDiv, .chartFormDiv, #commentFormDiv {
+#homeDiv, #chartsDiv, #userDiv, .chartFormDiv, #commentFormDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,6 +77,11 @@ a {
   height: 50px;
   text-align: center;
   width: 200px;
+}
+
+.sign-in-btn {  
+  background-color: transparent;
+  border: none;
 }
 
 .chart-card {
@@ -163,7 +162,34 @@ a {
   }
 }
 
-@media (max-width: 650px) {
+#mobileNavbar {
+  background-color: $sidebar-bg-color;
+  bottom: 0;
+  height: 6 rem;
+  padding: 16px;
+  position: sticky;
+  width: 100%;
+  visibility: hidden;
+}
+
+.mobile-view-button {
+  visibility: hidden;
+}
+
+.nav-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.nav-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
   .chart-card {
     flex-direction: column;
     width: 250px;
@@ -172,6 +198,27 @@ a {
 
   #detailsDiv {
     width: 600px;
+  }
+
+  #navbar {
+    visibility: hidden;
+  }
+  
+  #tunerBar {
+    visibility: hidden;
+  }
+
+  #homeDiv img {
+    width: 300px;
+    height: 300px;
+  }
+
+  #mobileNavbar {
+    visibility: visible;
+  }
+
+  .mobile-view-button {
+    visibility: visible;
   }
 
   #tunerDiv img {
@@ -190,8 +237,17 @@ a {
     }
   }
 
+  #chartImg {
+    width: 400px;
+  }
+
+  #controlDiv {
+    width: 500px;
+  }
+
 #commentDiv {
   display: flex;
   flex-direction: column;
 }
+
 }

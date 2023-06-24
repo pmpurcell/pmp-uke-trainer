@@ -8,7 +8,6 @@ export default function Home() {
         src="https://res.cloudinary.com/mpurcell/image/upload/v1639621525/Uke_mzmpga.png"
         alt="UkeTrainer"
       />
-
       <Link to="/charts">
         <button className="home-button" type="button">
           View Charts

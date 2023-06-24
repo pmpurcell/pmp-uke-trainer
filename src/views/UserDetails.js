@@ -21,6 +21,9 @@ export default function UserDetails() {
       {userChartArray.map((userChart) => (
         <div className="chart-card" key={userChart.firebaseKey}>
           <h3> {userChart.chartName} </h3>
+          <h5>
+            Uploaded by <i>{userChart.userName}</i>
+          </h5>
           <Link
             type="button"
             className="btn btn-primary"
@@ -30,6 +33,11 @@ export default function UserDetails() {
           </Link>
         </div>
       ))}
+      <Link to="/charts">
+        <div className="nav-column">
+          <p>Go to Charts</p>
+        </div>
+      </Link>
     </div>
   );
 }

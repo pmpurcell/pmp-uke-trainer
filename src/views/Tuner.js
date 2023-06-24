@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Tuner() {
   const gNote = 'https://res.cloudinary.com/mpurcell/video/upload/v1639449472/G_-_Ukulele_bop466.mp3';
@@ -47,6 +48,16 @@ export default function Tuner() {
           A
         </button>
       </div>
+      <Link to="/charts">
+        <button className="home-button mobile-view-button" type="button">
+          View Charts
+        </button>
+      </Link>
+      <Link to="/">
+        <button className="home-button mobile-view-button" type="button">
+          Go Home
+        </button>
+      </Link>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { signInUser } from '../api/auth';
 import { getCharts } from '../data/chartData';
+import MobileNavbar from '../components/MobileNavbar';
 
 export default function Charts({ user }) {
   const [charts, setCharts] = useState([]);
@@ -69,6 +70,7 @@ export default function Charts({ user }) {
           </button>
         )}
       </div>
+      <MobileNavbar />
     </div>
   );
 }
