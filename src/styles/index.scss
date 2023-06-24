@@ -189,7 +189,7 @@ a {
   flex-direction: column;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .chart-card {
     flex-direction: column;
     width: 250px;
@@ -235,6 +235,14 @@ a {
       width: fit-content;
       height: fit-content;
     }
+  }
+
+  #chartImg {
+    width: 400px;
+  }
+
+  #controlDiv {
+    width: 500px;
   }
 
 #commentDiv {

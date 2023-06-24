@@ -15,8 +15,7 @@ export default function MobileNavbar({ user }) {
         <div className="nav-row">
           <Link to="/">
             <div
-              className="nav-column
-            "
+              className="nav-column"
             >
               <BsFillHouseDoorFill />
               <p>Home</p>

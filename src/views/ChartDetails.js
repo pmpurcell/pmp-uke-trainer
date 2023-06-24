@@ -90,6 +90,13 @@ export default function ChartDetails({ user }) {
           Sign In To Comment
         </button>
       )}
+      <button
+        type="button"
+        className="btn btn-secondary"
+        onClick={() => history.goBack()}
+      >
+        Go back
+      </button>
     </div>
   );
 }
